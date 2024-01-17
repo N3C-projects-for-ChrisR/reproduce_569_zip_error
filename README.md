@@ -8,6 +8,7 @@ All scripts require 7zip. Available at  https://www.7-zip.org/download.html
   - It requires a small filesystem, here /Volumes/tiny, so you can run out of space.
   - The script takes arguments for different failing scenarios A, B, and C, as well as one that runs cleanly X.
 - make_zip_3.sh is like make_zip_2.sh but uses unzip_n3c_2.py
+- Skip the rest, RUN THIS ONE make_zip_4.sh. It just creates a zip file and truncates it without any need for a small filesystem. It's much shorter and simpler.
 - I've been doing this on macos Sonoma 14.2.1
 
 <blockquote>
