@@ -2,7 +2,7 @@
 set -euo pipefail
 
 rm -rf junk
-
+rm -f od_outputs
 dd if=/dev/zero of=a bs=10m count=1
 dd if=/dev/zero of=b bs=10m count=1
 dd if=/dev/urandom of=c bs=10m count=1
@@ -58,4 +58,26 @@ rm -f *
 
 
 cd ..
+set +euo
+#od -c seven.7zip | head -3
+
+echo "seven.zip"
+od -c seven.zip | head -3
+
+echo "seven_0.zip"
+od -c seven_0.zip | head -3
+
+#od -c seven_12.zip | head -3
+#od -c seven_14.zip | head -3
+
+echo "seven_8.zip"
+od -c seven_8.zip | head -3
+
+echo "seven_9.zip"
+od -c seven_9.zip | head -3
+
+echo "kahn.zip"
 od -c kahn.zip | head -3
+
+echo "basic.zip"
+od -c basic.zip | head -3
