@@ -1,12 +1,26 @@
 
 # Reproducing the zip error in Site 569
 
-## 7zip available here: https://www.7-zip.org/download.html\
+## Running the Code
+All scripts require 7zip. Available at  https://www.7-zip.org/download.html
+- make_zip_file.sh explores 7zip flags  
+- make_zip_2.sh creates files of different sizes to create different errors involving running out of disk space.
+  - It requires a small filesystem, here /Volumes/tiny, so you can run out of space.
+  - The script takes arguments for different failing scenarios A, B, and C, as well as one that runs cleanly X.
+- make_zip_3.sh is like make_zip_2.sh but uses unzip_n3c_2.py
+- I've been doing this on macos Sonoma 14.2.1
+
+<blockquote>
+<pre>
+bash> make_zip_2.sh A
+</pre>
+</blockquote>
+
 
 ## python scripts
 - unzip.py is the original from the enclave
 - unzip_n3c.py is a simplified version that uses python to pull out the files individually. It does not use the python utilities to do the file copies.
-- TODO use a more complex python script that uses python to copy files
+- unzip_n3c_2.py is more complicated, but doesn't use the small file system, and as of now, fails to reproduce anything  interesting.
 
 ## Stack Dump
 Traceback (most recent call last):
@@ -50,6 +64,3 @@ It workds out to 30 bytes which agrees with the filename of the first included f
 I went down this path because I saw a different header.
 
 
-## Scripts
-- make_zip_2.sh
-- make_zip_file.sh
