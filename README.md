@@ -10,6 +10,8 @@
 
 ## Stack Dump
 Traceback (most recent call last):
+<blockquote>
+<pre>
   File "/app/work-dir/_environment_/lib/python3.8/site-packages/transforms/build.py", line 378, in run
     self._transform.compute(ctx=transform_context, **parameters)
   File "/app/work-dir/__environment_/lib/python3.8/site-packages/transforms/api/transform.py", line 301, in compute
@@ -27,6 +29,8 @@ Traceback (most recent call last):
   File "/app/work-dir/_environment_/lib/python3.8/zipfile.py", line 763, in read
     self._file.seek(self._pos)
 OSError: [Errno 22] Invalid argument
+</pre>
+</blockquote>
 
 ## CPython source is here;
 git@github.com:python/cpython.git
@@ -34,9 +38,13 @@ Lib/zipfile.py
 
 ### line 763, the failing one, is      "self._file.seek(self._pos)"
 The _pos comes from the header length, calculated from the struct module: 
+<blockquote>
+<pre>
   stringEndArchive = b"PK\005\006"
   structEndArchive = b"<4s4H2LH"
   sizeEndCentDir = struct.calcsize(structEndArchive)
+</pre>
+</blockquote>
 The structEndArchive string can be decoded with instructions here under "Format Strings". https://docs.python.org/3/library/struct.html
 It workds out to 30 bytes which agrees with the filename of the first included file starting at byte 31. The 'a' menioned in  make_zip_file.sh.
 I went down this path because I saw a different header.
