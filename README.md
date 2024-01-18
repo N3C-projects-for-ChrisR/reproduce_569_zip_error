@@ -8,9 +8,12 @@ All scripts require 7zip. Available at  https://www.7-zip.org/download.html
   - It requires a small filesystem, here /Volumes/tiny, so you can run out of space.
   - The script takes arguments for different failing scenarios A, B, and C, as well as one that runs cleanly X.
 - make_zip_3.sh is like make_zip_2.sh but uses unzip_n3c_2.py
-- Skip the rest, RUN THIS ONE make_zip_4.sh. It just creates a zip file and truncates it without any need for a small filesystem. It's much shorter and simpler.
+- make_zip_4.sh. It just creates a zip file and truncates it without any need for a small filesystem. It's much shorter and simpler.
+- why_22_from_seek.py answers the question "what creates an "OSError: [Errno 22] Invalid argument" error?
+    - ANSWER: a **negative** integer passed to seek()!!
 - I've been doing this on macos Sonoma 14.2.1
-
+- Download Python 3.8 for macos here: https://www.python.org/ftp/python/3.8.1/python-3.8.1rc1-macosx10.9.pkg
+  - general page is https://www.python.org/downloads/
 <blockquote>
 <pre>
 bash> make_zip_2.sh A
