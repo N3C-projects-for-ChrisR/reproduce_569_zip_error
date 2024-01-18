@@ -15,6 +15,11 @@ CHUNK_SIZE =  1024 * 1024
 
 def unzip(filename):
     zipObj = ZipFile(filename)
+    zipObj.debug=3
+    print(zipObj.getinfo("a"))
+    print(zipObj.getinfo("b"))
+    print(zipObj.getinfo("c"))
+    print(zipObj.getinfo("non-existant"))
     for filename in zipObj.namelist():
         with open(filename, 'wb') as out:
             input_file = zipObj.open(filename)

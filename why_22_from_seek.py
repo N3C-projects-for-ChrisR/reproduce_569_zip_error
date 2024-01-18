@@ -49,5 +49,19 @@ if scenario == 'E':
         f.seek(-1)
         print(f.readline())
 
+if scenario == 'F':
+    os.system(f"truncate -s 30 {FILENAME}")
+    os.system(f"wc -c {FILENAME}")
+    with open(FILENAME, "rb") as f:
+        f.seek(1)
+        print(f.readline())
+
+if scenario == 'G':
+    os.system(f"truncate -s 30 {FILENAME}")
+    os.system(f"wc -c {FILENAME}")
+    with open(FILENAME, "rb") as f:
+        f.seek(1.1)
+        print(f.readline())
+
 
 
