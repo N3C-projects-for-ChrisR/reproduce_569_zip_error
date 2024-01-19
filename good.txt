@@ -1,0 +1,133 @@
+
+This is a character and hex dump of a zipfile from the od command. Sections are shown in 
+character, then hex formats. Comments follow.
+
+0000000    P   K 003 004  \n  \0  \0  \0  \0  \0 355   D   3   X   j   R
+0000020  206 326 020  \0  \0  \0 020  \0  \0  \0 006  \0 034  \0   f   i
+0000040    l   e   _   d   U   T  \t  \0 003 256 227 252   e 257 227 252
+0000060    e   u   x  \v  \0 001 004 366 001  \0  \0 004 024  \0  \0  \0
+0000100    T   h   i   s       i   s       f   i   l   e       d   .  \n
+
+0000000      4b50    0403    000a    0000    0000    44ed    5833    526a
+0000020      d686    0010    0000    0010    0000    0006    001c    6966
+0000040      656c    645f    5455    0009    ae03    aa97    af65    aa97
+0000060      7565    0b78    0100    f604    0001    0400    0014    0000
+0000100      6854    7369    6920    2073    6966    656c    6420    0a2e
+This section starts with the magic number PK34, continues with header and contents for file_d
+Signature: P K 3 4      4b50 0403
+Version: \n 0 ?         000a
+Flags: \0 \0            0000
+Compression: \0 \0      0000
+Mod time: 355 D         44ed
+Mode date: 3 X          5833
+CRC: j R l e            526a d686
+Compressed size:        0010 000
+UnCompressed size:      0010 000
+File name len:          0006
+Extra field len:        001c 
+File name: file_d
+Extra field: U T \t \0 003 256 227 252 e 257 227 252 e ux  x \v \0 001 004 366 001 \0 \0 004 024 \0 \0 \0
+Contents: This is file d.\n
+
+0000120    P   K 003 004  \n  \0  \0  \0  \0  \0 305   I   3   X   ]   8
+0000140    D 327 020  \0  \0  \0 020  \0  \0  \0 006  \0 034  \0   f   i
+0000160    l   e   _   e   U   T  \t  \0 003   ҟ  ** 252   e   ӟ  ** 252
+0000200    e   u   x  \v  \0 001 004 366 001  \0  \0 004 024  \0  \0  \0
+0000220    T   h   i   s       i   s       f   i   l   e       e   .  \n
+
+0000120      4b50    0403    000a    0000    0000    49c5    5833    385d
+0000140      d744    0010    0000    0010    0000    0006    001c    6966
+0000160      656c    655f    5455    0009    d203    aa9f    d365    aa9f
+0000200      7565    0b78    0100    f604    0001    0400    0014    0000
+0000220      6854    7369    6920    2073    6966    656c    6520    0a2e
+This section starts with the magic number PK34, continues with header and contents for file_e.
+
+0000240    P   K 003 004  \n  \0  \0  \0  \0  \0 361   D   3   X 004 206
+0000260  002 325 020  \0  \0  \0 020  \0  \0  \0 006  \0 034  \0   f   i
+0000300    l   e   _   f   U   T  \t  \0 003 266 227 252   e 267 227 252
+0000320    e   u   x  \v  \0 001 004 366 001  \0  \0 004 024  \0  \0  \0
+0000340    T   h   i   s       i   s       f   i   l   e       f   .  \n
+
+0000240      4b50    0403    000a    0000    0000    44f1    5833    8604
+0000260      d502    0010    0000    0010    0000    0006    001c    6966
+0000300      656c    665f    5455    0009    b603    aa97    b765    aa97
+0000320      7565    0b78    0100    f604    0001    0400    0014    0000
+0000340      6854    7369    6920    2073    6966    656c    6620    0a2e
+This section starts with the magic number PK34, continues with header and contents for file_f
+
+
+
+0000360    P   K 001 002 036 003  \n  \0  \0  \0  \0  \0 355   D   3   X
+0000400    j   R 206 326 020  \0  \0  \0 020  \0  \0  \0 006  \0 030  \0
+0000420   \0  \0  \0  \0 001  \0  \0  \0 244 201  \0  \0  \0  \0   f   i
+0000440    l   e   _   d   U   T 005  \0 003 256 227 252   e   u   x  \v
+0000460   \0 001 004 366 001  \0  \0 004 024  \0  \0  \0   P   K 001 002
+
+0000360      4b50    0201    031e    000a    0000    0000    44ed    5833
+0000400      526a    d686    0010    0000    0010    0000    0006    0018
+0000420      0000    0000    0001    0000    81a4    0000    0000    6966
+0000440      656c    645f    5455    0005    ae03    aa97    7565    0b78
+0000460      0100    f604    0001    0400    0014    0000    4b50    0201
+This section starts wtih the magic number PK12. This is a directory file header?
+signature(4): PK1           4b50 02012
+version(2):   036           031e
+version needed(2): 003      000a
+flags(2):\n \0i             0000
+compression(2):             0000
+Modtime(2):                 44ed
+Modedate(2):                5833
+CRC(4):                     5261 d686
+Compressed size(4):         0010 0000
+Uncompressed size(4):       0010 0000
+Filename leng(2):           0006
+Extra len(2);               0018
+comm len(2):                0000
+disk start(2):              0000    
+internal (2):               0001
+exteranl(4):                0000 81a4
+offset(4):                  0000 0000
+filename: file_d            6966 656c 645f
+extra:                      5455 0005 ae03 aa97 7656 0b78 0100 f604 0001
+        U T 005 \0 003 256 227 252 e u x \v \0 001 004  024 \0 \0
+?? \0
+NOTE the offset of 0 at 0000424
+
+
+0000500  036 003  \n  \0  \0  \0  \0  \0 305   I   3   X   ]   8   D 327
+0000520  020  \0  \0  \0 020  \0  \0  \0 006  \0 030  \0  \0  \0  \0  \0
+0000540  001  \0  \0  \0 244 201   P  \0  \0  \0   f   i   l   e   _   e
+0000560    U   T 005  \0 003   ҟ  ** 252   e   u   x  \v  \0 001 004 366
+0000600  001  \0  \0 004 024  \0  \0  \0   P   K 001 002 036 003  \n  \0
+
+0000500      031e    000a    0000    0000    49c5    5833    385d    d744
+0000520      0010    0000    0010    0000    0006    0018    0000    0000
+0000540      0001    0000    81a4    0050    0000    6966    656c    655f
+0000560      5455    0005    d203    aa9f    7565    0b78    0100    f604
+0000600      0001    0400    0014    0000    4b50    0201    031e    000a
+This section starts wtih the magic number PK12 at the end of the previous block and here with the signature 031e.
+Note the offset of 0050 at 0000543 547?
+
+0000620   \0  \0  \0  \0 361   D   3   X 004 206 002 325 020  \0  \0  \0
+0000640  020  \0  \0  \0 006  \0 030  \0  \0  \0  \0  \0 001  \0  \0  \0
+0000660  244 201 240  \0  \0  \0   f   i   l   e   _   f   U   T 005  \0
+0000700  003 266 227 252   e   u   x  \v  \0 001 004 366 001  \0  \0 004
+
+0000620      0000    0000    44f1    5833    8604    d502    0010    0000
+0000640      0010    0000    0006    0018    0000    0000    0001    0000
+0000660      81a4    00a0    0000    6966    656c    665f    5455    0005
+0000700      b603    aa97    7565    0b78    0100    f604    0001    0400
+This section starts wtih the magic number PK12 at the end of the previous block
+Offset here is 00a0 (100)  0000661.
+
+0000720  024  \0  \0  \0   P   K 005 006  \0  \0  \0  \0 003  \0 003  \0
+0000740  344  \0  \0  \0 360  \0  \0  \0  \0  \0                        
+0000752
+
+0000720      0014    0000    4b50    0605    0000    0000    0003    0003
+0000740      00e4    0000    00f0    0000    0000                        
+0000752
+This section starts with PK56
+
+
+
+he offsets are at 0000424, 0000543, and  0000661 with values 0, 50 an a0..

@@ -20,6 +20,9 @@ bash> make_zip_2.sh A
 </pre>
 </blockquote>
 
+## tweak_zip.c experiment
+This code reads in a zipfile created from file_d, file_e, and file_f to change some of the offsets to negative values in hopes of re-creating the error "Invalid argument" message. The first attempt got me:     raise BadZipFile("Truncated file header")
+
 
 ## python scripts
 - unzip.py is the original from the enclave
