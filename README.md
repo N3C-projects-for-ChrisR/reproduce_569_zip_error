@@ -22,6 +22,15 @@ bash> make_zip_2.sh A
 
 ## tweak_zip.c experiment
 This code reads in a zipfile created from file_d, file_e, and file_f to change some of the offsets to negative values in hopes of re-creating the error "Invalid argument" message. The first attempt got me:     raise BadZipFile("Truncated file header")
+- create the zip file: zip good.zip file_d file_e file_f
+- create a character dump of it: od -c good.zip
+- create an octal dump of shorts of it: od -x good.zip
+- compare that output to what is in good.txt
+- compile and run tweak_zip: gcc tweak.zip; ./a.out
+    - it will read good.zip and write gooder.zip
+- create the dumps and compare to the previous ones. 
+- test the new file with zip: unzip gooder.zip
+- test the new file with the python snippet: abbreviated_n3c_unzip.py gooder.zip
 
 
 ## python scripts
