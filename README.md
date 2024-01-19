@@ -37,8 +37,10 @@ This code reads in a zipfile created from file_d, file_e, and file_f to change s
 - unzip.py is the original from the enclave
 - unzip_n3c.py is a simplified version that uses python to pull out the files individually. It does not use the python utilities to do the file copies.
 - unzip_n3c_2.py is more complicated, but doesn't use the small file system, and as of now, fails to reproduce anything  interesting.
+- <b>why_22_from_seek.py DOES reproduce the error message by giving seek() a negative argument in scenario B. It's an open question of what has to go wrong in zip and unzip to lead to such an argument being passed to seek(). </b>
 
 ## Stack Dump
+This is the stack dump from the enclave failure. This is what I want to reproduce.
 Traceback (most recent call last):
 <blockquote>
 <pre>
