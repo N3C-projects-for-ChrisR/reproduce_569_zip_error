@@ -81,4 +81,7 @@ The structEndArchive string can be decoded with instructions here under "Format 
 It workds out to 30 bytes which agrees with the filename of the first included file starting at byte 31. The 'a' menioned in  make_zip_file.sh.
 I went down this path because I saw a different header.
 
+See also https://users.cs.jmu.edu/buchhofp/forensics/formats/pkzip.html
+
+
 
