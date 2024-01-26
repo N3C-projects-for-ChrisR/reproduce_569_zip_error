@@ -1,24 +1,20 @@
 
 # Reproducing the zip error in Site 569
 
-## Running the Code
-All scripts require 7zip. Available at  https://www.7-zip.org/download.html
-- make_zip_file.sh explores 7zip flags  
-- make_zip_2.sh creates files of different sizes to create different errors involving running out of disk space.
-  - It requires a small filesystem, here /Volumes/tiny, so you can run out of space.
-  - The script takes arguments for different failing scenarios A, B, and C, as well as one that runs cleanly X.
-- make_zip_3.sh is like make_zip_2.sh but uses unzip_n3c_2.py
-- make_zip_4.sh. It just creates a zip file and truncates it without any need for a small filesystem. It's much shorter and simpler.
-- why_22_from_seek.py answers the question "what creates an "OSError: [Errno 22] Invalid argument" error?
-    - ANSWER: a **negative** integer passed to seek()!!
-- I've been doing this on macos Sonoma 14.2.1
-- Download Python 3.8 for macos here: https://www.python.org/ftp/python/3.8.1/python-3.8.1rc1-macosx10.9.pkg
-  - general page is https://www.python.org/downloads/
-<blockquote>
-<pre>
-bash> make_zip_2.sh A
-</pre>
-</blockquote>
+Many scripts require 7zip. Available at  https://www.7-zip.org/download.html
+
+## files and experiments
+- make_zip_file.sh explores different commands and flags for creating zip files.
+- unzip.py is a copy of the enclave code. It depends on the Palantir environment.
+- abbreviated_n3c_unzip.py This is a basic Python script to use the zipfile package to open, list and read component files from a zip file. It doesn't write them because the errors we've seen happen before that. Python script, not a zip program because we're duplicating, at least in part, what is done in the enclave.
+- unzip_n3c_2.py This is a simplification of unzip.py that can run outside of Foundry or Spark to exercise just ZipFile.
+- why_22_from_seek.py This script calls open(), a function used by ZipFile that appears in the error from it, to find what can reproduce that specific erorr: OSError: [Errno 22] Invalid argument
+- This is a series of attempts to mangle the zip file and reproduce the error message indirectly through ZipFile.
+  - make_zip_2.sh, make_zip_3.sh
+    - Both requires a small filesystem, here /Volumes/tiny, so you can run out of space.  
+  - make_zip_4_truncate.sh
+  - make_zip_5_perms.sh
+- final_enclave.py Is the final code run on the enclave. It has log output from both a failing and a successful run.
 
 ## tweak_zip.c experiment
 This code reads in a zipfile created from file_d, file_e, and file_f to change some of the offsets to negative values in hopes of re-creating the error "Invalid argument" message. The first attempt got me:     raise BadZipFile("Truncated file header")
@@ -32,12 +28,6 @@ This code reads in a zipfile created from file_d, file_e, and file_f to change s
 - test the new file with zip: unzip gooder.zip
 - test the new file with the python snippet: abbreviated_n3c_unzip.py gooder.zip
 
-
-## python scripts
-- unzip.py is the original from the enclave
-- unzip_n3c.py is a simplified version that uses python to pull out the files individually. It does not use the python utilities to do the file copies.
-- unzip_n3c_2.py is more complicated, but doesn't use the small file system, and as of now, fails to reproduce anything  interesting.
-- <b>why_22_from_seek.py DOES reproduce the error message by giving seek() a negative argument in scenario A. It's an open question of what has to go wrong in zip and unzip to lead to such an argument being passed to seek(). </b>
 
 ## Stack Dump
 This is the stack dump from the enclave failure. This is what I want to reproduce.
@@ -68,7 +58,7 @@ OSError: [Errno 22] Invalid argument
 git@github.com:python/cpython.git
 Lib/zipfile.py
 
-### line 763, the failing one, is      "self._file.seek(self._pos)"
+ line 763, the failing one, is      "self._file.seek(self._pos)"
 The _pos comes from the header length, calculated from the struct module: 
 <blockquote>
 <pre>
