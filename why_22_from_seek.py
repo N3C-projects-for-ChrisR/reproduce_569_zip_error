@@ -4,14 +4,14 @@
 
 import os
 import sys
-scenario='B'
+scenario='A'
 FILENAME="junk_file"
 
 if (len(sys.argv) > 1):
     scenario=sys.argv[1]
 else:
-    print("usage why_22_from_seek.py <scenario>")
-    exit()
+    print("usage: why_22_from_seek.py <scenario>")
+    print("   defaulting to scenario 'A'\n")
 
 
 os.system(f"dd if=/dev/zero of={FILENAME} bs=10m count=1 > /dev/null 2> /dev/null")
